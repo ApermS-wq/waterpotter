@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram Integration</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        Telegram.WebApp.ready();
+
+        // Получаем данные пользователя
+        const userId = Telegram.WebApp.initDataUnsafe.user?.id || "Unknown";
+        const userName = Telegram.WebApp.initDataUnsafe.user?.username || "Unknown";
+
+        // Переход с данными на главную страницу
+        window.location.href = "/?user_id=" + encodeURIComponent(userId) + "&username=" + encodeURIComponent(userName);
+    </script>
+</head>
+<body>
+    <p>Инициализация Telegram...</p>
+</body>
+</html>
